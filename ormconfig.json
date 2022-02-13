@@ -1,0 +1,19 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "username": "postgres",
+    "password": "root",
+    "database": "CRM",
+    "entities": [
+      "dist/**/*.entity{.ts,.js}"
+    ],
+    "synchronize": true,
+    "migrations": ["dist/migrations/*{.ts,.js}"],
+    "migrationsTableName": "migrations_history",
+    "migrationsRun": true,
+    "autoLoadEntities": true
+  }
+]
