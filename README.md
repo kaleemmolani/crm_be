@@ -1,6 +1,7 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://ibb.co/7X6LGm4" width="320" alt="Nest Logo" /></a>
+  <img src="https://i.ibb.co/9NCSq5t/selfcrm-bg.png" alt="selfcrm-bg" width="320" alt="selfcrm Logo" />
 </p>
+
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
