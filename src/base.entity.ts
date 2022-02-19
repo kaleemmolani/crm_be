@@ -3,7 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   UpdateDateColumn,
-  CreateDateColumn
+  CreateDateColumn,
 } from 'typeorm';
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -29,4 +29,8 @@ export abstract class BaseEntity {
 
   @Column({type: 'uuid', nullable: true })
   createdBy: string;
+
+  @Column({type: 'uuid', nullable: true })
+  updatedBy: string;
+
 }

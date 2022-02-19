@@ -6,11 +6,15 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { Contact } from './entities/contact.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('contact')
+@UseGuards(AuthGuard('jwt'))
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
 
@@ -25,7 +29,8 @@ export class ContactController {
   }
 
   @Post()
-  create(@Body() contact: Contact) {
+  create(@Body() contact: Contact, @Req() req: any) {
+    contact.createdBy = req.user.id;
     return this.contactService.create(contact);
   }
 
@@ -35,7 +40,12 @@ export class ContactController {
   }
 
   @Patch(':id')
-  updateOne(@Param('id') id: string, @Body() updateContactDto: Contact) {
+  updateOne(
+    @Param('id') id: string,
+    @Body() updateContactDto: Contact,
+    @Req() req: any,
+  ) {
+    updateContactDto.updatedBy = req.user.id;
     return this.contactService.updateOne({ id, updateContactDto });
   }
 

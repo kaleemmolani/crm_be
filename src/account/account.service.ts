@@ -42,8 +42,9 @@ export class AccountService {
     return this.accountRepository.findOne(id);
   }
 
-  update(id: number, updateAccountDto: Account): Promise<UpdateResult> {
+  update(id: string, updateAccountDto: Account): Promise<UpdateResult> {
     try {
+      console.log(updateAccountDto);
       return this.accountRepository.update(id, updateAccountDto);
     } catch (error) {
       throw new Error(error);

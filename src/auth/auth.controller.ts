@@ -42,8 +42,9 @@ export class AuthController {
   }
 
   @Get('whoami')
-  @UseGuards(AuthGuard())
+  @UseGuards(AuthGuard('jwt'))
   public async testAuth(@Req() req: any): Promise<JwtPayload> {
+    console.log(req.user.id);
     return UserResult(req.user);
   }
 }

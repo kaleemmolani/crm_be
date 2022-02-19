@@ -10,6 +10,9 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CaslModule } from './casl/casl.module';
 import { AuthMiddleware } from 'middleware/Auth.middleware';
+import { RoleModule } from './role/role.module';
+import { PermissionModule } from './permission/permission.module';
+import { RolePermissionModule } from './role-permission/role-permission.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
@@ -19,6 +22,9 @@ import { AuthMiddleware } from 'middleware/Auth.middleware';
     AuthModule,
     UsersModule,
     CaslModule,
+    RoleModule,
+    PermissionModule,
+    RolePermissionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
